@@ -2,8 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:3000', 
+  'https://limetray-project-vqzy.vercel.app'
+];
+
 app.use(cors({
-    origin: 'http://localhost:3000',  
+  origin: allowedOrigins,
 }));
 
 app.use(express.json());
