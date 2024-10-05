@@ -32,6 +32,15 @@ app.post('/cart', (req, res) => {
         res.status(400).json({ message: 'Item already exists in the cart' });
     }
 });
+app.post('/cart/save', (req, res) => {
+    const { items } = req.body;
+
+    if (!items || items.length === 0) {
+        return res.status(400).json({ message: 'Cart is empty.' });
+    }
+
+    return res.status(200).json({ message: 'Cart saved successfully!' });
+});
 
 app.put('/cart/:id', (req, res) => {
     const id = parseInt(req.params.id);
